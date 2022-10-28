@@ -6,6 +6,7 @@ module.exports = {
   preprocess: sveltePreprocess(),
   base: '/ijome',
   paths: {
-    base: '/ijome'
+    base: '/ijome',
+    assets: '/assets'
   }
 };
