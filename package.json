@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
+  "homepage": "https://nansd.github.io/ijome/",
   "devDependencies": {
     "@nrwl/cli": "15.0.4",
     "@nrwl/cypress": "15.0.4",
