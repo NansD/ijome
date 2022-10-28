@@ -1,0 +1,7 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "dependencies": {
+    "emojis-list": "^3.0.0"
+  }
+}
