@@ -139,7 +139,30 @@
  .justify-content-space-evenly {
 	 justify-content: space-evenly;
 }
- 
-	
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-text {
+  width: 50%;
+  height: 2rem;
+  margin: 2rem 0;
+  border-radius: 0.25rem;
+}
+.skeleton-img {
+	width: 3rem;
+	height: 3rem;
+  margin-bottom: 0.5rem;
+	border-radius: 100px;
+}
 	
 </style>

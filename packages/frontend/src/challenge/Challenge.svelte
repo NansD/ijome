@@ -13,7 +13,7 @@
   $: disabled =
     !answer || tries.some((tentative) => tentative.answer === answer);
   const queryResult = useQuery('todos', getDailyChallenge);
-  $: document.title = `Ijome - ${$queryResult.data?.challenge}`
+  $: document.title = `Ijome - ${$queryResult.data?.challenge}`;
   const mutation = useMutation(submitAnswer, {
     onError() {
       tries.push({ answer, success: false });
@@ -25,24 +25,33 @@
     },
   });
 
-  $: isCorrect = tries.some(tentative => tentative.success);
+  $: isCorrect = tries.some((tentative) => tentative.success);
 
   let answer: string = '';
   let ref: HTMLInputElement;
-  onMount(() => {
-    ref.focus();
-  });
+  $: ref?.focus(); // autofocus the input element
   function handleSubmit(event) {
     $mutation.mutate({ answer });
   }
 </script>
 
 <div
-  class="bg-darker padding-1 flex-column justify-content-center align-items-center gap-1" style="padding-top: 112px;"
+  class="bg-darker padding-1 flex-column justify-content-center align-items-center gap-1"
+  style="padding-top: 112px;"
 >
   <div class="challenge-card">
+    {#if $queryResult.isLoading}
+      <!-- <h2>Chargement ...</h2> -->
+      <div class="skeleton skeleton-text"></div>
+      <div class="flex-row gap-1 justify-content-center" style="width: 100%">
+        <div class="skeleton skeleton-img"></div>
+        <div class="skeleton skeleton-img"></div>
+        <div class="skeleton skeleton-img"></div>
+      </div>
+    {:else}
     <h2>Challenge du jour</h2>
     {$queryResult.data?.challenge}
+    {/if}
   </div>
   <form on:submit|preventDefault={handleSubmit}>
     <label for="answer">Réponse:</label>
@@ -57,16 +66,36 @@
     />
     <button class="primary" type="submit" {disabled}> Soumettre </button>
     {#if isCorrect}
-    <div style="width: 100%" class="flex-column align-items-center">
-      <!-- https://mitcheljager.github.io/svelte-confetti/ -->
-      <Confetti amount=200 x={[-0.5, 0.5]} delay={[0, 250]} iterationCount=2  />
-      <Confetti amount=100 x={[-0.75, -0.3]} y={[0.15, 0.75]}  delay={[0, 1000]} iterationCount=2 />
-      <Confetti amount=100 x={[0.3, 0.75]} y={[0.15, 0.75]}  delay={[0, 1000]} iterationCount=2 />
-      <p style="justify-self:flex-start"> Félicitations 🥳 ! On se retrouve demain pour la prochaine partie !</p>
-    </div>
+      <div style="width: 100%" class="flex-column align-items-center">
+        <!-- https://mitcheljager.github.io/svelte-confetti/ -->
+        <Confetti
+          amount="200"
+          x={[-0.5, 0.5]}
+          delay={[0, 250]}
+          iterationCount="2"
+        />
+        <Confetti
+          amount="100"
+          x={[-0.75, -0.3]}
+          y={[0.15, 0.75]}
+          delay={[0, 1000]}
+          iterationCount="2"
+        />
+        <Confetti
+          amount="100"
+          x={[0.3, 0.75]}
+          y={[0.15, 0.75]}
+          delay={[0, 1000]}
+          iterationCount="2"
+        />
+        <p style="justify-self:flex-start">
+          Félicitations 🥳 ! On se retrouve demain pour la prochaine partie !
+        </p>
+      </div>
     {/if}
   </form>
 </div>
+
 <div
   class="bg-lighter padding-1 flex-column justify-content-center align-items-center gap-1"
 >
@@ -111,7 +140,7 @@
     width: 80vw;
   }
 
-  @media(min-width: 992px) {
+  @media (min-width: 992px) {
     .challenge-card {
       width: 50vw;
     }
