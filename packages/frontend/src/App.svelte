@@ -1,12 +1,20 @@
 <script lang="ts">
+	import { QueryClient, QueryClientProvider } from '@sveltestack/svelte-query'
   import emojis from 'emojis-list'
+  import Challenge from './challenge/Challenge.svelte';
 	// pick a random emoji
 	const emoji = emojis[Math.floor(Math.random()*emojis.length)];
+	const queryClient = new QueryClient();
 </script>
 
 <main>
-	<h1>Ijome {emoji}</h1>
-	<p>Devinez des concepts à partir d'émojis!</p>
+	<QueryClientProvider client={queryClient}>
+
+		<h1>Ijome {emoji}</h1>
+		<p>Devinez des concepts à partir d'émojis!</p>
+		<Challenge />
+	</QueryClientProvider>
+
 </main>
 
 <style global>
