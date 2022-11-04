@@ -10,8 +10,10 @@
 <main>
 	<QueryClientProvider client={queryClient}>
 
-		<h1>Ijome {emoji}</h1>
-		<p>Devinez des concepts à partir d'émojis!</p>
+		<div class="flex justify-content-center align-items-center gap-1 padding-1" style="flex-wrap: wrap">
+			<h1>Ijome {emoji}</h1>
+			<p>Devinez des concepts à partir d'émojis!</p>
+		</div>
 		<Challenge />
 	</QueryClientProvider>
 
@@ -22,7 +24,9 @@
 		--background: #fef6e4;
 		--text: #001858;
 		--primary: #f582ae;
+		--primary-lighter: #fce0eb;
 		--background-darker: #f3d2c1;
+		--border-radius: 5px;
 	}
 	body {
 		background-color: var(--background);
@@ -37,4 +41,105 @@
 	p {
 		font-size: 20px;
 	}
+	input[type=text] {
+		border: 3px solid var(--text);
+		border-radius: var(--border-radius);
+		font-size: 28px;
+		color: var(--text);
+	}
+
+	input[type=text]:focus {
+		box-shadow: 0 5px 15px -10px rgb(31 18 53 / 60%);
+	}
+
+	button {
+		padding: 0.9rem 2rem;
+		border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+		color: var(--text);
+	}
+
+	button.primary {
+		background-color: var(--primary);
+		font-size: 28px;
+		border: 0;
+	}
+
+	button:disabled {
+		cursor: not-allowed;
+		background-color: var(--primary-lighter);
+	}
+
+	button:hover:not([disabled]) {
+		box-shadow: 0 5px 15px -10px rgb(31 18 53 / 60%);
+	}
+
+	.bg-darker {
+		background-color: var(--background-darker);
+	}
+
+	.bg-ligher {
+		background-color: var(--background);
+	}
+
+	.padding-1 {
+		padding: 1rem;
+	}
+
+	.border-radius {
+		border-radius: var(--border-radius);
+	}
+
+	.flex {
+  	display: flex;
+	}
+	
+	.gap-1 {
+		gap: 1rem;
+	}
+
+	.flex-row {
+  	display: flex;
+		flex-direction: row;
+	}
+
+	.flex-column {
+  	display: flex;
+		flex-direction: column;
+	}
+	.align-items-center {
+	 align-items: center;
+}
+ .align-items-start {
+	 align-items: flex-start;
+}
+ .align-items-end {
+	 align-items: flex-end;
+}
+ .align-items-baseline {
+	 align-items: baseline;
+}
+ .justify-content-center {
+	 justify-content: center;
+}
+ .justify-content-start {
+	 justify-content: flex-start;
+}
+ .justify-content-end {
+	 justify-content: flex-end;
+}
+ .justify-content-space-around {
+	 justify-content: space-around;
+}
+ .justify-content-space-between {
+	 justify-content: space-between;
+}
+ .justify-content-space-evenly {
+	 justify-content: space-evenly;
+}
+ 
+	
+	
 </style>
