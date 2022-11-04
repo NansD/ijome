@@ -1,5 +1,10 @@
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 const server = fastify({ logger: true });
+
+server.register(cors, { 
+  origin: '*'
+});
 
 server.get('/daily/challenge', async () => {
   return { id: 'b3ec53fc-d167-4356-b772-9a60f930a9a0', challenge: '🐀👨‍🍳' };
