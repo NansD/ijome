@@ -1,6 +1,6 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
-import { Challenge } from '@ijome/common'
+import { Answer, AnswerResponse, Challenge } from '@ijome/common'
 const server = fastify({ logger: true });
 
 server.register(cors, { 
@@ -20,14 +20,11 @@ const answerSchema = {
     }
   }
 };
-type PostDailyAnswer = {
-  answer: string
-}
 
-server.post<{ Body: PostDailyAnswer }>('/daily/answer', {
+server.post<{ Body: Answer }>('/daily/answer', {
     schema: answerSchema,
   },
-  async (request) => {
+  async (request): Promise<AnswerResponse> => {
     if (request.body.answer === 'ratatouille') return { correct: true };
     return { correct: false };
   }
