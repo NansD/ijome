@@ -59,9 +59,9 @@
     {#if isCorrect}
     <div style="width: 100%" class="flex-column align-items-center">
       <!-- https://mitcheljager.github.io/svelte-confetti/ -->
-      <Confetti amount=200 x={[-0.5, 0.5]} delay={[0, 250]}  />
-      <Confetti amount=100 x={[-0.75, -0.3]} y={[0.15, 0.75]}  delay={[0, 1000]} />
-      <Confetti amount=100 x={[0.3, 0.75]} y={[0.15, 0.75]}  delay={[0, 1000]} />
+      <Confetti amount=200 x={[-0.5, 0.5]} delay={[0, 250]} iterationCount=2  />
+      <Confetti amount=100 x={[-0.75, -0.3]} y={[0.15, 0.75]}  delay={[0, 1000]} iterationCount=2 />
+      <Confetti amount=100 x={[0.3, 0.75]} y={[0.15, 0.75]}  delay={[0, 1000]} iterationCount=2 />
       <p style="justify-self:flex-start"> Félicitations 🥳 ! On se retrouve demain pour la prochaine partie !</p>
     </div>
     {/if}
