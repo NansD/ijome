@@ -1,4 +1,9 @@
 export interface Challenge {
-  id: string,
   challenge: string,
+  theme: string,
+  subThemes?: {
+    challenge: string,
+    theme: string,
+  }[],
+  possibleSolutions: string[]
 }

@@ -1,14 +1,15 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
 import { Answer, AnswerResponse, Challenge } from '@ijome/common'
+import { getTodaysChallenge } from './challenges'
 const server = fastify({ logger: true });
 
 server.register(cors, { 
   origin: '*'
 });
 
-server.get('/daily/challenge', async (): Promise<Challenge> => {
-  return { id: 'b3ec53fc-d167-4356-b772-9a60f930a9a0', challenge: '🐀👨‍🍳' };
+server.get('/daily/challenge', (): Challenge => {
+  return getTodaysChallenge();
 });
 
 const answerSchema = {
@@ -24,9 +25,10 @@ const answerSchema = {
 server.post<{ Body: Answer }>('/daily/answer', {
     schema: answerSchema,
   },
-  async (request): Promise<AnswerResponse> => {
-    if (request.body.answer === 'ratatouille') return { correct: true };
-    return { correct: false };
+  (request): AnswerResponse => {
+    const challenge = getTodaysChallenge();
+    if (challenge.possibleSolutions.includes(request.body.answer)) return { correct: true }
+    return { correct: false }
   }
 );
 
