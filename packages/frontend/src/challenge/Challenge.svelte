@@ -9,11 +9,14 @@
     answer: string;
     success: boolean;
   };
-  let tries: Try[] = [];
+  const today = new Date().toDateString();
+  const localStorageKey = `tries-of-${today}`
+  let tries: Try[] = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
   $: disabled =
     !answer || tries.some((tentative) => tentative.answer === answer);
   const queryResult = useQuery('todos', getDailyChallenge);
   $: document.title = `Ijome - ${$queryResult.data?.challenge}`;
+  $: localStorage.setItem(localStorageKey, JSON.stringify(tries))
   const mutation = useMutation(submitAnswer, {
     onError() {
       tries.push({ answer, success: false });
