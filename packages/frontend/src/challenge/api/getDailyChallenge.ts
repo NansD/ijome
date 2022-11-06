@@ -1,5 +1,5 @@
-import { Challenge, Routes } from '@ijome/common';
+import { ChallengeDTO, Routes } from '@ijome/common';
 import { API_URL, queryAndReturnBody } from "../../api";
-export function getDailyChallenge(): Promise<Challenge> {
+export function getDailyChallenge(): Promise<ChallengeDTO> {
   return queryAndReturnBody(`${API_URL}/${Routes.DAILY_CHALLENGE}`)
 }

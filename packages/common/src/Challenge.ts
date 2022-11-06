@@ -7,3 +7,5 @@ export interface Challenge {
   }[],
   possibleSolutions: string[]
 }
+
+export type ChallengeDTO = Omit<Challenge, 'possibleSolutions'>;

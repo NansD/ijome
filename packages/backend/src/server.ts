@@ -1,15 +1,17 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
-import { Answer, AnswerResponse, Challenge } from '@ijome/common'
-import { getTodaysChallenge } from './challenges'
+import { Answer, AnswerResponse, Challenge, ChallengeDTO } from '@ijome/common'
+import { challenges, getTodaysChallenge } from './challenges'
 const server = fastify({ logger: true });
 
 server.register(cors, { 
   origin: '*'
 });
 
-server.get('/daily/challenge', (): Challenge => {
-  return getTodaysChallenge();
+server.get('/daily/challenge', (): ChallengeDTO => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { possibleSolutions, ...challenge } = getTodaysChallenge();
+  return challenge;
 });
 
 const answerSchema = {
