@@ -63,6 +63,7 @@
       name="answer"
       bind:value={answer}
       bind:this={ref}
+      class="challenge-input"
       class:success={isCorrect}
       class:error={!isCorrect}
       enterkeyhint="send"
@@ -129,6 +130,10 @@
     text-align: center;
     padding: 2.5rem;
     width: 80vw;
+  }
+
+  .challenge-input {
+    max-width: 95vw;
   }
 
   h2 {

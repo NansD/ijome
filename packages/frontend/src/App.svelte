@@ -50,6 +50,8 @@
 
 	input[type=text]:focus {
 		box-shadow: 0 5px 15px -10px rgb(31 18 53 / 60%);
+		outline-style: solid;
+		outline-width: 3px;
 	}
 
 	button {
@@ -59,6 +61,11 @@
     font-weight: 700;
     cursor: pointer;
 		color: var(--text);
+	}
+
+	button:focus {
+		outline-style: solid;
+		outline-width: 3px;
 	}
 
 	button.primary {
