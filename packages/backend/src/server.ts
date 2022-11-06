@@ -2,6 +2,8 @@ import fastify from 'fastify';
 import cors from '@fastify/cors';
 import { Answer, AnswerResponse, ChallengeDTO } from '@ijome/common';
 import { getTodaysChallenge } from './challenges';
+import { compare } from './services/textComparison';
+
 const server = fastify({ logger: true });
 
 server.register(cors, { 
@@ -29,7 +31,7 @@ server.post<{ Body: Answer }>('/daily/answer', {
   },
   (request): AnswerResponse => {
     const challenge = getTodaysChallenge();
-    if (challenge.possibleSolutions.includes(request.body.answer)) return { correct: true };
+    if (challenge.possibleSolutions.find(p => compare(p, request.body.answer))) return { correct: true };
     return { correct: false };
   }
 );

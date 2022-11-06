@@ -1,31 +1,36 @@
 import { Challenge } from '@ijome/common';
 import { Themes } from "./themes";
 
+/**
+ * Write the least possible words necessary for the solution to be correct,
+ * avoid parasite words like "the", "my" etc unless they are VERY important
+ * for the solution to be accepted
+ */
 export const challenges: Challenge[] = [
   {
     challenge: '🐀👨‍🍳',
     theme: Themes['Télévision, Émission, Série'],
-    possibleSolutions: ['Ratatouille']
+    possibleSolutions: ['ratatouille']
   },
   {
     challenge: '🐺🦷⬜',
     theme: Themes['Littérature, Écriture, Livre'],
-    possibleSolutions: ['Croc blanc', 'croc blanc', 'croc blancs', 'crocs blanc', 'crocs blancs']
+    possibleSolutions: ['croc blanc']
   },
   {
     challenge: '🦶🦶🍽️',
     theme: Themes['Expression, Langue, Dialogue - Bande Dessinée'],
-    possibleSolutions: ['Mettre les pieds dans le plat', 'mettre les pieds dans le plat']
+    possibleSolutions: ['mettre pied plat']
   },
   {
     challenge: '🥚🐄',
     theme: Themes['Expression, Langue, Dialogue - Bande Dessinée'],
-    possibleSolutions: ['Qui vole un oeuf, vole un boeuf', 'qui vole un oeuf, vole un boeuf']
+    possibleSolutions: ['vole oeuf vole boeuf']
   },
   {
     challenge: '🎲🥘🏊‍♂️🤥',
     theme: Themes['Rébus'],
-    possibleSolutions: ['Déménagement', 'déménagement']
+    possibleSolutions: ['déménagement']
   },
   {
     challenge: '⬆️🤥🗣',
@@ -34,12 +39,12 @@ export const challenges: Challenge[] = [
       theme: Themes['Lieu, Pays, Drapeau'],
       challenge: '🟦⬜🟥'
     }],
-    possibleSolutions: ['Normandie', 'normandie']
+    possibleSolutions: ['normandie']
   },
   {
     challenge: '🎲🪑👑',
     theme: Themes['Télévision, Émission, Série'],
-    possibleSolutions: ['Game of throne', 'le throne de fer', 'game of throne']
+    possibleSolutions: ['game throne', 'trone fer']
   },
 ];
 
