@@ -1,7 +1,7 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
-import { Answer, AnswerResponse, Challenge, ChallengeDTO } from '@ijome/common'
-import { challenges, getTodaysChallenge } from './challenges'
+import { Answer, AnswerResponse, ChallengeDTO } from '@ijome/common';
+import { getTodaysChallenge } from './challenges';
 const server = fastify({ logger: true });
 
 server.register(cors, { 
@@ -29,14 +29,14 @@ server.post<{ Body: Answer }>('/daily/answer', {
   },
   (request): AnswerResponse => {
     const challenge = getTodaysChallenge();
-    if (challenge.possibleSolutions.includes(request.body.answer)) return { correct: true }
-    return { correct: false }
+    if (challenge.possibleSolutions.includes(request.body.answer)) return { correct: true };
+    return { correct: false };
   }
 );
 
 const start = async () => {
   try {
-    await server.listen({ port: process.env.PORT ? Number(process.env.PORT) : 3000 });
+    await server.listen({ port: process.env.PORT ? Number(process.env.PORT) : 3000, host: '0.0.0.0' });
   } catch (err) {
     server.log.error(err);
     process.exit(1);
