@@ -44,8 +44,55 @@ export const challenges: Challenge[] = [
   {
     challenge: '🎲🪑👑',
     theme: Themes['Télévision, Émission, Série'],
-    possibleSolutions: ['game throne', 'trone fer']
+    possibleSolutions: ['game throne', 'trone fer', 'throne fer']
   },
+  {
+    challenge: '🗓🌦🧥🪡 ',
+    theme: Themes['Télévision, Émission, Série'],
+    possibleSolutions: ['en avril ne te découvre pas d\'un fil', 'avril découvre fil']
+  },
+  {
+    challenge: '🌽🥀🪺',
+    theme: Themes['Rébus'],
+    subThemes: [{
+      theme: Themes['Date, Événement, Jour'],
+      challenge: '1'
+    }],
+    possibleSolutions: ['epiphanie', 'epifanie']
+  },
+  {
+    challenge: '✝️ 🪺🥤',
+    theme: Themes['Rébus'],
+    subThemes: [{
+      theme: Themes['Date, Événement, Jour'],
+      challenge: '🎅'
+    }],
+    possibleSolutions: ['st nicolas', 'saint nicolas']
+  },
+  {
+    challenge: '🔌🏛⚔️🎆',
+    theme: Themes['Rébus'],
+    subThemes: [{
+      theme: Themes['Date, Événement, Jour'],
+      challenge: '14'
+    }],
+    possibleSolutions: ['prise bastille', 'prise de la bastille']
+  },
+  {
+    challenge: '🦃🇺🇸🙏',
+    theme: Themes['Date, Événement, Jour'],
+    possibleSolutions: ['thanksgiving']
+  },
+  {
+    challenge: '🍻 🍀 🌈 ✝️',
+    theme: Themes['Date, Événement, Jour'],
+    possibleSolutions: ['st patrick', 'saint patrick']
+  },
+  {
+    challenge: '🪑👨🗳️🍫',
+    theme: Themes['Cinéma, Film, Caméra'],
+    possibleSolutions: ['forest gump', 'forrest gump']
+  }
 ];
 
 export function getTodaysChallenge() {

@@ -11,5 +11,7 @@ export enum Themes {
   'Littérature, Écriture, Livre' = 'Littérature, Écriture, Livre',
   'Expression, Langue, Dialogue - Bande Dessinée' = 'Expression, Langue, Dialogue - Bande Dessinée',
   'Rébus' = 'Rébus',
-  'Lieu, Pays, Drapeau' = 'Lieu, Pays, Drapeau'
+  'Lieu, Pays, Drapeau' = 'Lieu, Pays, Drapeau',
+  'Date, Événement, Jour' = 'Date, Événement, Jour',
+  'Cinéma, Film, Caméra' = 'Cinéma, Film, Caméra'
 }
