@@ -1,6 +1,7 @@
-import { Answer, AnswerResponse, Routes } from "@ijome/common";
-import { API_URL, postData } from "../../api";
+import { Answer, AnswerResponse, compare, getTodaysChallenge } from "@ijome/common";
 
-export function submitAnswer(answer: Answer): Promise<AnswerResponse> {
-  return postData(`${API_URL}/${Routes.DAILY_ANSWER}`, answer);
+export async function submitAnswer({ answer }: Answer): Promise<AnswerResponse> {
+  const challenge = getTodaysChallenge();
+  if (challenge.possibleSolutions.some(p => compare(p, answer))) return { correct: true };
+  return { correct: false };
 }

@@ -1,8 +1,7 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
-import { Answer, AnswerResponse, ChallengeDTO } from '@ijome/common';
-import { getTodaysChallenge } from './challenges';
-import { compare } from './services/textComparison';
+import { Answer, AnswerResponse, ChallengeDTO, getTodaysChallenge } from '@ijome/common';
+import { compare } from '@ijome/common';
 
 const server = fastify({ logger: true });
 

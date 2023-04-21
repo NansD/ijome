@@ -1,5 +1,5 @@
 // ouais c'est un peu moche de tout avoir en doublon,
-// mais si on fait enum truc { 'ma clé' }, la valeur JS de truc['ma clé] c'est 0 et non une chaine de caractères
+// mais si on fait enum truc { 'ma clé' }, la valeur JS de truc['ma clé'] c'est 0 et non une chaine de caractères
 // on trouvera sûrement un truc plus joli à faire en tout cas
 
 
