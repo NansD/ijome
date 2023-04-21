@@ -1,4 +1,4 @@
-import { Challenge } from '@ijome/common';
+import { Challenge } from './Challenge'
 import { Themes } from "./themes";
 
 /**
