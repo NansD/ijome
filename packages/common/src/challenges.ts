@@ -48,7 +48,7 @@ export const challenges: Challenge[] = [
   },
   {
     challenge: '🗓🌦🧥🪡 ',
-    theme: Themes['Télévision, Émission, Série'],
+    theme: Themes['Expression, Langue, Dialogue - Bande Dessinée'],
     possibleSolutions: ['en avril ne te découvre pas d\'un fil', 'avril découvre fil']
   },
   {

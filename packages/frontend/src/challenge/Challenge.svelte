@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { useQuery, useMutation } from '@sveltestack/svelte-query';
+  import ChallengeHints from './ChallengeHints.svelte';
+  import { useMutation, useQuery } from '@sveltestack/svelte-query';
   import { Confetti } from 'svelte-confetti';
-  import { onMount } from 'svelte';
   import { getDailyChallenge } from './api/getDailyChallenge';
   import { submitAnswer } from './api/submitAnswer';
 
@@ -10,13 +10,13 @@
     success: boolean;
   };
   const today = new Date().toDateString();
-  const localStorageKey = `tries-of-${today}`
-  let tries: Try[] = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+  const triesLocalStorageKey = `tries-of-${today}`;
+  let tries: Try[] = JSON.parse(localStorage.getItem(triesLocalStorageKey) || '[]');
   $: disabled =
     !answer || tries.some((tentative) => tentative.answer === answer);
-  const queryResult = useQuery('todos', getDailyChallenge);
+  const queryResult = useQuery('challenge', getDailyChallenge);
   $: document.title = `Ijome - ${$queryResult.data?.challenge}`;
-  $: localStorage.setItem(localStorageKey, JSON.stringify(tries))
+  $: localStorage.setItem(triesLocalStorageKey, JSON.stringify(tries));
   const mutation = useMutation(submitAnswer, {
     onError() {
       tries.push({ answer, success: false });
@@ -40,20 +40,20 @@
 
 <div
   class="bg-darker padding-1 flex-column justify-content-center align-items-center gap-1"
-  style="padding-top: 112px;"
+  style="padding-top: 3rem;"
 >
   <div class="challenge-card">
     {#if $queryResult.isLoading}
-      <!-- <h2>Chargement ...</h2> -->
-      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text" />
       <div class="flex-row gap-1 justify-content-center" style="width: 100%">
-        <div class="skeleton skeleton-img"></div>
-        <div class="skeleton skeleton-img"></div>
-        <div class="skeleton skeleton-img"></div>
+        <div class="skeleton skeleton-img" />
+        <div class="skeleton skeleton-img" />
+        <div class="skeleton skeleton-img" />
       </div>
     {:else}
-    <h2>Challenge du jour</h2>
-    {$queryResult.data?.challenge}
+      <h2>Challenge du jour</h2>
+      {$queryResult.data?.challenge}
+      <ChallengeHints challengeData={$queryResult.data} />
     {/if}
   </div>
   <form on:submit|preventDefault={handleSubmit}>
@@ -130,6 +130,12 @@
     text-align: center;
     padding: 2.5rem;
     width: 80vw;
+  }
+
+  .hint {
+    margin-top: 3rem;
+    font-size: 20px;
+    text-align: left;
   }
 
   .challenge-input {
