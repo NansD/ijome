@@ -10,7 +10,7 @@
     JSON.parse(localStorage.getItem(hintsLocalStorageKey)) ||
     [
       challengeData?.theme,
-      ...(challengeData?.subThemes.map((t) => t.theme) || []),
+      ...(challengeData?.subThemes?.map((t) => t.theme) || []),
     ].map((theme) => ({ theme, show: false }));
   $: localStorage.setItem(hintsLocalStorageKey, JSON.stringify(hints));
 </script>
