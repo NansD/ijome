@@ -20,12 +20,12 @@ export const challenges: Challenge[] = [
   {
     challenge: '🦶🦶🍽️',
     theme: Themes['Expression, Langue, Dialogue - Bande Dessinée'],
-    possibleSolutions: ['mettre pied plat']
+    possibleSolutions: ['mettre les pieds dans le plat']
   },
   {
     challenge: '🥚🐄',
     theme: Themes['Expression, Langue, Dialogue - Bande Dessinée'],
-    possibleSolutions: ['vole oeuf vole boeuf']
+    possibleSolutions: ['qui vole un oeuf vole un boeuf']
   },
   {
     challenge: '🎲🥘🏊‍♂️🤥',
