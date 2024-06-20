@@ -92,6 +92,66 @@ export const challenges: Challenge[] = [
     challenge: '🪑👨🗳️🍫',
     theme: Themes['Cinéma, Film, Caméra'],
     possibleSolutions: ['forest gump', 'forrest gump']
+  },
+  {
+    "challenge": "🦁👑",
+    "theme": Themes["Cinéma, Film, Caméra"],
+    "possibleSolutions": ["le roi lion", "lion king"]
+  },
+  {
+    "challenge": "🦇👨‍🌆",
+    "theme": Themes["Cinéma, Film, Caméra"],
+    "possibleSolutions": ["batman"]
+  },
+  {
+    "challenge": "🔎🧔📜",
+    "theme": Themes["Littérature, Écriture, Livre"],
+    "possibleSolutions": ["sherlock holmes"]
+  },
+  {
+    "challenge": "👸❄️",
+    "theme": Themes["Cinéma, Film, Caméra"],
+    "possibleSolutions": ["la reine des neiges", "frozen"]
+  },
+  {
+    "challenge": "🧙‍♂️💍",
+    "theme": Themes["Cinéma, Film, Caméra"],
+    "possibleSolutions": ["le seigneur des anneaux", "lord of the rings"]
+  },
+  {
+    "challenge": "👠🛳️🧊",
+    "theme": Themes["Cinéma, Film, Caméra"],
+    "possibleSolutions": ["titanic"]
+  },
+  {
+    "challenge": "🍎🐍👫",
+    "theme": Themes["Littérature, Écriture, Livre"],
+    "possibleSolutions": ["adam et ève", "adam and eve"]
+  },
+  {
+    "challenge": "🧙‍♂️🪄👓⚡🎩",
+    "theme": Themes["Littérature, Écriture, Livre"],
+    "possibleSolutions": ["harry potter"]
+  },
+  {
+    "challenge": "🚢🧔‍♂️🏝️📖",
+    "theme": Themes["Littérature, Écriture, Livre"],
+    "possibleSolutions": ["robinson crusoe", "vendredi", "vendredi ou la vie sauvage"]
+  },
+  {
+    "challenge": "🧚🧒 🏴‍☠️🪝",
+    "theme": Themes["Littérature, Écriture, Livre"],
+    "possibleSolutions": ["peter pan"]
+  },
+  {
+    "challenge": "🐉🧙‍♂️",
+    "theme": Themes["Cinéma, Film, Caméra"],
+    "possibleSolutions": ["le hobbit", "the hobbit"]
+  },
+  {
+    "challenge": "👑💂‍♂️🫖",
+    "theme": Themes["Lieu, Pays, Drapeau"],
+    "possibleSolutions": ["royaume-uni", "united kingdom"]
   }
 ];
 
